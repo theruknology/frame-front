@@ -40,10 +40,9 @@ export default function ContentDisplay({
     <div className="space-y-6">
       {/* Video Player */}
       <div className="relative aspect-video bg-muted rounded-lg overflow-hidden">
-        {content?.videoUrl ? (
+        {content ? (
           <video
-            src={content.videoUrl}
-            poster={content.thumbnail}
+            src="/reel.mp4"
             controls
             className="w-full h-full object-cover"
             onPlay={() => setIsPlaying(true)}
@@ -51,18 +50,10 @@ export default function ContentDisplay({
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
-            <img 
-              src="/sample-video-thumbnail.jpg" 
-              alt="Sample video thumbnail"
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQwIiBoZWlnaHQ9IjM2MCIgdmlld0JveD0iMCAwIDY0MCAzNjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI2NDAiIGhlaWdodD0iMzYwIiBmaWxsPSIjMjEyMTI4Ii8+CjxwYXRoIGQ9Ik0yNzAgMjAwTDM3MCAyNTBMMjcwIDMwMFYyMDBaIiBmaWxsPSIjNzM3M0E0Ii8+Cjx0ZXh0IHg9IjMyMCIgeT0iMTgwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNzM3M0E0IiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCI+U2FtcGxlIFZpZGVvPC90ZXh0Pgo8L3N2Zz4K';
-              }}
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="bg-black/50 rounded-full p-4">
-                <Play className="h-8 w-8 text-white" />
-              </div>
+            <div className="text-center text-white">
+              <VideoIcon className="h-12 w-12 mx-auto mb-2 text-muted-foreground" />
+              <p className="text-sm font-medium text-muted-foreground">Video Content</p>
+              <p className="text-xs opacity-90 text-muted-foreground">Click Generate to Start</p>
             </div>
           </div>
         )}
@@ -150,18 +141,18 @@ export default function ContentDisplay({
 
           {/* Post Image */}
           <div className="aspect-square bg-muted">
-            {content?.imageUrl ? (
+            {content ? (
               <img 
-                src={content.imageUrl} 
-                alt="Instagram post"
+                src="/samplegen.png" 
+                alt="Sample Instagram Ad"
                 className="w-full h-full object-cover"
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500">
                 <div className="text-center text-white">
                   <ImageIcon className="h-12 w-12 mx-auto mb-2" />
-                  <p className="text-sm font-medium">Sample Instagram Ad</p>
-                  <p className="text-xs opacity-90">Generated Content</p>
+                  <p className="text-sm font-medium">Instagram Ad</p>
+                  <p className="text-xs opacity-90">Click Generate to Start</p>
                 </div>
               </div>
             )}

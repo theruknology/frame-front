@@ -6,11 +6,11 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useAuth } from '@/hooks/useAuth';
-import { Loader2, Mail, Lock, Chrome } from 'lucide-react';
+import { Loader2, Mail, Lock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 export default function AuthPage() {
-  const { user, loading, signUp, signIn, signInWithGoogle } = useAuth();
+  const { user, loading, signUp, signIn } = useAuth();
   const { toast } = useToast();
   
   const [email, setEmail] = useState('');
@@ -69,19 +69,7 @@ export default function AuthPage() {
     setIsLoading(false);
   };
 
-  const handleGoogleSignIn = async () => {
-    setIsLoading(true);
-    const { error } = await signInWithGoogle();
-    
-    if (error) {
-      toast({
-        title: "Error with Google sign in",
-        description: error.message,
-        variant: "destructive"
-      });
-    }
-    setIsLoading(false);
-  };
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
@@ -202,24 +190,6 @@ export default function AuthPage() {
               </TabsContent>
             </Tabs>
             
-            <div className="relative my-6">
-              <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t border-muted" />
-              </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
-              </div>
-            </div>
-            
-            <Button
-              onClick={handleGoogleSignIn}
-              variant="outline"
-              className="w-full"
-              disabled={isLoading}
-            >
-              <Chrome className="mr-2 h-4 w-4" />
-              Sign in with Google
-            </Button>
           </CardContent>
         </Card>
       </div>
