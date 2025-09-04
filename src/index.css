@@ -2,41 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Framestorm Design System - Dark theme with vibrant gradients */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark theme base colors */
+    --background: 220 27% 8%;
+    --foreground: 220 10% 96%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 27% 10%;
+    --card-foreground: 220 10% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 27% 12%;
+    --popover-foreground: 220 10% 96%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Brand colors - Purple/Blue gradient theme */
+    --primary: 258 90% 66%;
+    --primary-foreground: 220 10% 96%;
+    --primary-dark: 258 90% 55%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 27% 16%;
+    --secondary-foreground: 220 10% 90%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 27% 14%;
+    --muted-foreground: 220 10% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 258 90% 66%;
+    --accent-foreground: 220 10% 96%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 10% 96%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 27% 20%;
+    --input: 220 27% 16%;
+    --ring: 258 90% 66%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom Framestorm colors */
+    --gradient-primary: linear-gradient(135deg, hsl(258 90% 66%), hsl(280 90% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(220 27% 16%), hsl(220 27% 20%));
+    --gradient-accent: linear-gradient(135deg, hsl(258 90% 66%), hsl(200 90% 70%));
+    --gradient-hero: linear-gradient(135deg, hsl(258 90% 66%) 0%, hsl(280 90% 70%) 50%, hsl(200 90% 70%) 100%);
+    
+    /* Content type colors */
+    --video-accent: 0 90% 70%;
+    --blog-accent: 120 90% 70%;
+    --instagram-accent: 300 90% 70%;
+    
+    /* Animation variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
+    --shadow-card: 0 10px 30px -10px hsl(220 27% 4% / 0.5);
+    --shadow-intense: 0 0 60px hsl(var(--primary) / 0.4);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +122,103 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  /* Hero button variant */
+  .btn-hero {
+    background: var(--gradient-hero);
+    @apply text-primary-foreground font-semibold px-8 py-4 rounded-xl shadow-lg;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .btn-hero:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-intense);
+  }
+  
+  /* Content type badges */
+  .badge-video {
+    background: linear-gradient(135deg, hsl(var(--video-accent)), hsl(var(--video-accent) / 0.8));
+  }
+  
+  .badge-blog {
+    background: linear-gradient(135deg, hsl(var(--blog-accent)), hsl(var(--blog-accent) / 0.8));
+  }
+  
+  .badge-instagram {
+    background: linear-gradient(135deg, hsl(var(--instagram-accent)), hsl(var(--instagram-accent) / 0.8));
+  }
+  
+  /* Animated gradient backgrounds */
+  .animated-gradient {
+    background: var(--gradient-primary);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+  }
+  
+  /* Loading animations */
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+  
+  .spin-slow {
+    animation: spin 3s linear infinite;
+  }
+  
+  /* Glass morphism effect */
+  .glass {
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
