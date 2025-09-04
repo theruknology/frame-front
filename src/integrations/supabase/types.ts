@@ -14,7 +14,75 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      campaigns: {
+        Row: {
+          campaign_type: string
+          created_at: string
+          description: string | null
+          id: string
+          marketing_targets: string | null
+          media_files: Json | null
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          campaign_type: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          marketing_targets?: string | null
+          media_files?: Json | null
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          campaign_type?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          marketing_targets?: string | null
+          media_files?: Json | null
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      social_accounts: {
+        Row: {
+          account_id: string | null
+          created_at: string
+          id: string
+          is_connected: boolean | null
+          platform: string
+          updated_at: string
+          user_id: string
+          username: string
+        }
+        Insert: {
+          account_id?: string | null
+          created_at?: string
+          id?: string
+          is_connected?: boolean | null
+          platform: string
+          updated_at?: string
+          user_id: string
+          username: string
+        }
+        Update: {
+          account_id?: string | null
+          created_at?: string
+          id?: string
+          is_connected?: boolean | null
+          platform?: string
+          updated_at?: string
+          user_id?: string
+          username?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
