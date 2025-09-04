@@ -27,7 +27,7 @@ export default function ChatInterface({
 
   const helperPrompts = {
     video: [
-      "Create a 30-second product demo video",
+      "Create a 30-second event demo video",
       "Generate a tutorial video script",
       "Make an engaging social media video",
       "Create a brand story video"
