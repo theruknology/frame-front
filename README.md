@@ -1,54 +1,157 @@
-# Welcome to your Lovable project
+# FrameStorm 🌪️
 
-## Project info
+A powerful React application for managing and automating social media campaigns with an intuitive interface and robust features.
 
-**URL**: https://lovable.dev/projects/097a7ff7-2a6a-411b-a293-b0f58b08cdb8
+## 🚀 Features
 
-## How can I edit this code?
+- **Authentication System**: Secure user authentication powered by Supabase
+- **Campaign Management**: Create and manage social media campaigns efficiently
+- **Content Generation**: AI-powered content generation for social media posts
+- **Real-time Chat Interface**: Interactive chat system for campaign management
+- **Social Media Integration**: Connect and manage multiple social media platforms
+- **Responsive Design**: Built with mobile-first approach using Tailwind CSS
+- **Modern UI Components**: Utilizing shadcn/ui components for a polished look
+- **Type Safety**: Built with TypeScript for enhanced development experience
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **Frontend Framework**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS with shadcn/ui components
+- **Backend & Auth**: Supabase
+- **State Management**: React Query (TanStack Query)
+- **Form Handling**: React Hook Form with Zod validation
+- **Routing**: React Router DOM
+- **Data Visualization**: Recharts
+- **UI Components**: 
+  - Radix UI primitives
+  - Embla Carousel
+  - Sonner for toasts
+  - Vaul for drawers
+  - Command palette (cmdk)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/097a7ff7-2a6a-411b-a293-b0f58b08cdb8) and start prompting.
+## 📦 Installation
 
-Changes made via Lovable will be committed automatically to this repo.
+1. Clone the repository:
+```bash
+git clone [your-repo-url]
+cd prompt-cascade-92
+```
 
-**Use your preferred IDE**
+2. Install dependencies:
+```bash
+# Using npm
+npm install
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+# Using yarn
+yarn
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+# Using pnpm
+pnpm install
 
-Follow these steps:
+# Using bun
+bun install
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+3. Set up environment variables:
+Create a `.env` file in the root directory and add your Supabase credentials:
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+4. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 🚀 Available Scripts
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- `npm run dev`: Start the development server
+- `npm run build`: Build for production
+- `npm run build:dev`: Build for development
+- `npm run preview`: Preview the production build
+- `npm run lint`: Run ESLint for code linting
 
-**Use GitHub Codespaces**
+## 📁 Project Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+src/
+├── components/         # React components
+│   ├── Auth/          # Authentication related components
+│   ├── Campaign/      # Campaign management components
+│   └── ui/            # Reusable UI components (shadcn/ui)
+├── hooks/             # Custom React hooks
+├── integrations/      # External service integrations
+│   └── supabase/      # Supabase client and types
+├── lib/              # Utility functions and helpers
+└── pages/            # Application pages/routes
+```
+
+## 🔐 Authentication
+
+The application uses Supabase for authentication. Users can:
+- Sign up with email/password
+- Sign in with email/password
+- Reset password
+- Manage their profile
+
+## 📱 Responsive Design
+
+The application is fully responsive and works seamlessly across:
+- Desktop computers
+- Tablets
+- Mobile devices
+
+Custom hook `use-mobile.tsx` is available for mobile-specific features.
+
+## 🎨 UI Components
+
+The project uses shadcn/ui components, which are built on top of Radix UI primitives. These include:
+- Accordions
+- Alert Dialogs
+- Avatars
+- Cards
+- Carousels
+- Charts
+- Forms
+- And many more...
+
+## 🔧 Development
+
+### Code Style
+
+- TypeScript for type safety
+- ESLint for code linting
+- Consistent code formatting with project conventions
+
+### Best Practices
+
+1. Keep components small and focused
+2. Use TypeScript interfaces for props
+3. Implement proper error handling
+4. Follow the established project structure
+5. Write meaningful commit messages
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+- [Shadcn UI](https://ui.shadcn.com/) for the amazing component library
+- [Supabase](https://supabase.com/) for backend and authentication
+- [Vite](https://vitejs.dev/) for the blazing fast build tool
+- [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
+```
 
 ## What technologies are used for this project?
 
@@ -59,15 +162,3 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/097a7ff7-2a6a-411b-a293-b0f58b08cdb8) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
