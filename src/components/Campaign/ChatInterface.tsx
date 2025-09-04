@@ -42,7 +42,7 @@ export default function ChatInterface({
       "Design a product showcase ad",
       "Create a brand awareness carousel",
       "Make a story ad template",
-      "Generate a promotional post"
+      "Generate a promotional post for the event"
     ]
   };
 
